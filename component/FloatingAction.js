@@ -287,6 +287,7 @@ class FloatingAction extends Component {
     return (
       <TouchableOpacity
         {...getRippleProps(mainButtonColor)}
+        style={[{ widht: this.getButtonSize(), height: this.getButtonSize() }]}
         activeOpacity={0.6}
         onPress={this.animateButton}
       >
