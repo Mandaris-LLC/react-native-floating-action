@@ -299,7 +299,7 @@ class FloatingAction extends Component {
         <Touchable
           {...getRippleProps(mainButtonColor)}
           style={[styles.button, { widht: this.getButtonSize(), height: this.getButtonSize() }]}
-          activeOpacity={0.85}
+          activeOpacity={0.6}
           onPress={this.animateButton}
         >
           <Animated.View style={[styles.buttonTextContainer, { widht: this.getButtonSize(), height: this.getButtonSize() }, animatedViewStyle]}>
