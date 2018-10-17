@@ -221,6 +221,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 5
     },
+    shadowColor: '#000000',
     shadowRadius: 3,
     elevation: 5,
     borderRadius: 4,
@@ -246,6 +247,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 5
     },
+    shadowColor: '#000000',
     shadowRadius: 3,
     elevation: 5,
     width: 40,
