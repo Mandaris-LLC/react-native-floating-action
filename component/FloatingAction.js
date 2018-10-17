@@ -5,6 +5,7 @@ import {
   Image,
   Animated,
   Dimensions,
+  View,
   TouchableOpacity,
   LayoutAnimation,
   Platform,
