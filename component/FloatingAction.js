@@ -231,7 +231,8 @@ class FloatingAction extends Component {
       color,
       position,
       overrideWithAction,
-      distanceToEdge
+      distanceToEdge,
+      style
     } = this.props;
 
     if (buttonColor) {
@@ -284,7 +285,8 @@ class FloatingAction extends Component {
           styles.buttonContainer,
           styles[`${position}Button`],
           propStyles,
-          animatedVisibleView
+          animatedVisibleView,
+          style
         ]}
         accessible={true}
         accessibilityLabel={'Floating Action Button'}
@@ -401,7 +403,7 @@ class FloatingAction extends Component {
       >
         {
           (active && showBackground) &&
-            this.renderTappableBackground()
+          this.renderTappableBackground()
         }
         {
           this.renderActions()
