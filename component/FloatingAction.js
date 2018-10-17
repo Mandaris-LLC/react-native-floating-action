@@ -503,16 +503,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     overflow: Platform.OS === 'ios' ? 'visible' : 'hidden',
     zIndex: 2,
-    borderRadius: 28,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowOpacity: 0.35,
-    shadowOffset: {
-      width: 0,
-      height: 5
-    },
-    shadowColor: '#000000',
-    shadowRadius: 3,
     elevation: 5,
     position: 'absolute'
   },
