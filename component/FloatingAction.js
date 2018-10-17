@@ -284,29 +284,31 @@ class FloatingAction extends Component {
     }
 
     return (
-      <Animated.View
-        style={[
-          styles.buttonContainer,
-          { widht: this.getButtonSize(), height: this.getButtonSize() },
-          styles[`${position}Button`],
-          propStyles,
-          animatedVisibleView,
-          style
-        ]}
-        accessible={true}
-        accessibilityLabel={'Floating Action Button'}
+      <TouchableOpacity
+        {...getRippleProps(mainButtonColor)}
+        activeOpacity={0.6}
+        onPress={this.animateButton}
       >
-        <Touchable
-          {...getRippleProps(mainButtonColor)}
-          style={[styles.button, { widht: this.getButtonSize(), height: this.getButtonSize() }]}
-          activeOpacity={0.6}
-          onPress={this.animateButton}
+        <Animated.View
+          style={[
+            styles.buttonContainer,
+            { widht: this.getButtonSize(), height: this.getButtonSize() },
+            styles[`${position}Button`],
+            propStyles,
+            animatedVisibleView,
+            style
+          ]}
+          accessible={true}
+          accessibilityLabel={'Floating Action Button'}
         >
-          <Animated.View style={[styles.buttonTextContainer, { widht: this.getButtonSize(), height: this.getButtonSize() }, animatedViewStyle]}>
-            {this.getIcon()}
-          </Animated.View>
-        </Touchable>
-      </Animated.View>
+          <View
+            style={[styles.button, { widht: this.getButtonSize(), height: this.getButtonSize() }]}>
+            <Animated.View style={[styles.buttonTextContainer, { widht: this.getButtonSize(), height: this.getButtonSize() }, animatedViewStyle]}>
+              {this.getIcon()}
+            </Animated.View>
+          </View>
+        </Animated.View>
+      </TouchableOpacity>
     );
   }
 
