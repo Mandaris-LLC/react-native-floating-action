@@ -20,6 +20,7 @@ declare module 'react-native-floating-action' {
 
     export interface IFloatingActionProps {
         style: any;
+        size: number;
         actions?: IActionProps[];
         color?: string;
         distanceToEdge?: number;

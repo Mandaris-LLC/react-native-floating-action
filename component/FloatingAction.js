@@ -30,7 +30,7 @@ class FloatingAction extends Component {
     };
 
     this.mainBottomAnimation = new Animated.Value(props.distanceToEdge);
-    this.actionsBottomAnimation = new Animated.Value(ACTION_BUTTON_SIZE + props.distanceToEdge + props.actionsPaddingTopBottom);
+    this.actionsBottomAnimation = new Animated.Value(this.getButtonSize() + props.distanceToEdge + props.actionsPaddingTopBottom);
     this.animation = new Animated.Value(0);
     this.actionsAnimation = new Animated.Value(0);
     this.visibleAnimation = new Animated.Value(props.visible ? 0 : 1);
@@ -39,6 +39,10 @@ class FloatingAction extends Component {
      * interpolations with 0 and 1 don't work as expected.
      */
     this.fadeAnimation = new Animated.Value(props.visible ? 1 : 0);
+  }
+
+  getButtonSize() {
+    return this.props.size ? this.props.size : ACTION_BUTTON_SIZE;
   }
 
   componentDidMount() {
@@ -90,7 +94,7 @@ class FloatingAction extends Component {
         this.actionsBottomAnimation,
         {
           bounciness: 0,
-          toValue: (ACTION_BUTTON_SIZE + distanceToEdge + actionsPaddingTopBottom + height) - (isIphoneX() ? 40 : 0),
+          toValue: (this.getButtonSize() + distanceToEdge + actionsPaddingTopBottom + height) - (isIphoneX() ? 40 : 0),
           duration: 250
         }
       ),
@@ -113,7 +117,7 @@ class FloatingAction extends Component {
         this.actionsBottomAnimation,
         {
           bounciness: 0,
-          toValue: ACTION_BUTTON_SIZE + distanceToEdge + actionsPaddingTopBottom,
+          toValue: this.getButtonSize() + distanceToEdge + actionsPaddingTopBottom,
           duration: 250
         }
       ),
@@ -283,6 +287,7 @@ class FloatingAction extends Component {
       <Animated.View
         style={[
           styles.buttonContainer,
+          { widht: this.getButtonSize(), height: this.getButtonSize() },
           styles[`${position}Button`],
           propStyles,
           animatedVisibleView,
@@ -293,11 +298,11 @@ class FloatingAction extends Component {
       >
         <Touchable
           {...getRippleProps(mainButtonColor)}
-          style={styles.button}
+          style={[styles.button, { widht: this.getButtonSize(), height: this.getButtonSize() }]}
           activeOpacity={0.85}
           onPress={this.animateButton}
         >
-          <Animated.View style={[styles.buttonTextContainer, animatedViewStyle]}>
+          <Animated.View style={[styles.buttonTextContainer, { widht: this.getButtonSize(), height: this.getButtonSize() }, animatedViewStyle]}>
             {this.getIcon()}
           </Animated.View>
         </Touchable>
@@ -498,8 +503,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     overflow: Platform.OS === 'ios' ? 'visible' : 'hidden',
     zIndex: 2,
-    width: ACTION_BUTTON_SIZE,
-    height: ACTION_BUTTON_SIZE,
     borderRadius: 28,
     alignItems: 'center',
     justifyContent: 'center',
@@ -515,8 +518,6 @@ const styles = StyleSheet.create({
   },
   button: {
     zIndex: 3,
-    width: ACTION_BUTTON_SIZE,
-    height: ACTION_BUTTON_SIZE,
     borderRadius: 28,
     alignItems: 'center',
     justifyContent: 'center'
@@ -528,8 +529,6 @@ const styles = StyleSheet.create({
   },
   buttonTextContainer: {
     borderRadius: 28,
-    width: ACTION_BUTTON_SIZE,
-    height: ACTION_BUTTON_SIZE,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
