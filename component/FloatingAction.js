@@ -506,7 +506,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 5,
-    position: 'absolute'
   },
   button: {
     zIndex: 3,
