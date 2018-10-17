@@ -289,7 +289,8 @@ class FloatingAction extends Component {
         {...getRippleProps(mainButtonColor)}
         style={[{ widht: this.getButtonSize(), height: this.getButtonSize() }]}
         activeOpacity={0.6}
-        onPress={this.animateButton}
+        onPress={this.props.onPress}
+        onLongPress={this.animateButton}
       >
         <Animated.View
           style={[

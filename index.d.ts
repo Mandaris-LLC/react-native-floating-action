@@ -2,7 +2,7 @@
 
 declare module 'react-native-floating-action' {
     import { Component } from 'react';
-
+    import { StyleProp, ViewStyle } from 'react-native';
     type position = "right" | "left" | "center";
 
     declare class FloatingAction extends Component<IFloatingActionProps> {
@@ -19,7 +19,8 @@ declare module 'react-native-floating-action' {
     }
 
     export interface IFloatingActionProps {
-        style: any;
+        onPress: () => void
+        style?: StyleProp<ViewStyle>;
         size: number;
         actions?: IActionProps[];
         color?: string;
